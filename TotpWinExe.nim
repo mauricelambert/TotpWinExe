@@ -15,9 +15,9 @@
 #    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 # To compile on windows with nim 2.0.8:
-# nim c --stackTrace:off  --lineTrace:off --checks:off --assertions:off -d:release -d=mingw --opt:size --passl:"-s" TotpWinExe.nim
+# nim --app:gui c --stackTrace:off  --lineTrace:off --checks:off --assertions:off -d:release -d=mingw --opt:size --passl:"-s" TotpWinExe.nim
 
-import strutils, times, nimcrypto/hmac, nimcrypto/sha, endians, unicode
+import strutils, times, nimcrypto/hmac, nimcrypto/sha, endians
 import winim/lean
 import base32
 
@@ -194,7 +194,7 @@ proc main() =
     return
 
   let enableDarkMode = true.int32()
-  let is_enbale = DwmSetWindowAttribute(hWindow, DWMWA_USE_IMMERSIVE_DARK_MODE, cast[pointer](addr enableDarkMode), sizeof(enableDarkMode).int32())
+  let is_enable = DwmSetWindowAttribute(hWindow, DWMWA_USE_IMMERSIVE_DARK_MODE, cast[pointer](addr enableDarkMode), sizeof(enableDarkMode).int32())
   SetWindowPos(hWindow, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE or SWP_NOSIZE)
 
   # Create Label for "Secret:"
