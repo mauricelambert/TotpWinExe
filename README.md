@@ -17,7 +17,7 @@ Little GUI Windows application to enter a secret key and obtain your TOTP withou
 ## Compilation
 
 ```bash
-nim c --stackTrace:off  --lineTrace:off --checks:off --assertions:off -d:release -d=mingw --opt:size --passl:"-s" TotpWinExe.nim
+nim --app:gui c --stackTrace:off  --lineTrace:off --checks:off --assertions:off -d:release -d=mingw --opt:size --passl:"-s" TotpWinExe.nim
 ```
 
 ## Licence
